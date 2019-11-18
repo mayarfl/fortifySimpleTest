@@ -72,6 +72,17 @@ public class SimpleTest {
     }
 
     @Test
+    public void sometimesPass3()
+    {
+        Random random = new Random();
+        int randomNumber = random.nextInt(200);
+        boolean smallerThanFiftee =  randomNumber < 50 ? true : false;
+        Assert.assertEquals(smallerThanFiftee, true);
+ 	Assert.assertEquals(true, true);
+    }
+
+
+    @Test
     public void sometimesPass2()
     {
  //        Random random = new Random();
