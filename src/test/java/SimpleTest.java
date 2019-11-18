@@ -37,6 +37,12 @@ public class SimpleTest {
        Assert.assertEquals(2, 2);
    }
 
+   @Test
+   public void alwaysFail6()
+   {
+       Assert.assertEquals(2, 3);
+   }
+
 
   @Test
     public void alwaysPass6()
@@ -47,6 +53,12 @@ public class SimpleTest {
    public void alwaysPass7()
    {
        Assert.assertEquals(1, 1);
+   }
+   
+    	@Test  
+   public void alwaysPass8()
+   {
+       Assert.assertEquals(3, 3);
    }
 
     @Test
@@ -117,6 +129,15 @@ public class SimpleTest {
         Random random = new Random();
         int randomNumber = random.nextInt(99);
         boolean smallerThanFiftee =  randomNumber < 50 ? true : false;
+        Assert.assertEquals(smallerThanFiftee, true);	
+    }
+	
+			
+    @Test
+    @Ignore
+    public void ignored6()
+    {
+        Random random = new Random();
         Assert.assertEquals(smallerThanFiftee, true);	
     }
 }
