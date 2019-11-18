@@ -1,0 +1,1 @@
+cp -f "C:\git\SimpleTests\FortifySimpleTests.fpr" C:\git\hpaa-octane-dev\work\jobs\fortify\workspace
