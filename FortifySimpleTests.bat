@@ -131,7 +131,7 @@ GOTO :FINISHED
 REM ###########################################################################
 echo Finished
 :FINISHED
-call copy.bat
+REM call copy.bat
 REM ARGS "-cp"
 REM ARGS "PROJECTROOT0_MARKER\target\test-classes"
 REM ARGS "-source"
