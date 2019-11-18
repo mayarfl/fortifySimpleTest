@@ -18,8 +18,8 @@ REM LAUNCHERSWITCHES - the launcher settings that are used to invoke SCA
 REM OLDFILENUMBER - this defines the file which contains the number of files within the project, it is automatically generated
 REM FILENOMAXDIFF - this is the percentage of difference between the number of files which will trigger a warning by the script
 REM ###########################################################################
-git reset --hard simpleTest/master
-git pull
+REM git reset --hard fortifySimpleTest/master
+REM git pull
 set DEBUG=false
 set SOURCEANALYZER=sourceanalyzer
 set FPR="FortifySimpleTests.fpr"
@@ -32,7 +32,7 @@ set OLDFILENUMBER=FortifySimpleTests.bat.fileno
 set FILENOMAXDIFF=10
 set ENABLE_BYTECODE=false
 
-set PROJECTROOT0="C:\git\SimpleTests"
+set PROJECTROOT0="C:\Dev\hpaa-octane-dev\work\workspace\fortify_test"
 IF NOT EXIST %PROJECTROOT0% (
    ECHO  ERROR: This script is being run on a different machine than it was
    ECHO         generated on or the targeted project has been moved. This script is 
