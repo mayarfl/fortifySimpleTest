@@ -80,7 +80,7 @@ GOTO :FINISHED
 )
 REM ###########################################################################
 echo Running Build Integration
-%SOURCEANALYZER% %MEMORY% %LAUNCHERSWITCHES% -b %BUILDID%  -source 1.8 mvn -f "C:\Dev\hpaa-octane-dev\work\workspace\fortify_test\pom.xml" install
+%SOURCEANALYZER% %MEMORY% %LAUNCHERSWITCHES% -b %BUILDID%  -source 1.8 mvn install -f "C:\Dev\hpaa-octane-dev\work\workspace\fortify_test\pom.xml" 
 IF %ERRORLEVEL%==1 (
 echo Sourceanalyzer failed, exiting
 GOTO :FINISHED
