@@ -23,10 +23,10 @@ REM git pull
 set DEBUG=false
 set SOURCEANALYZER=sourceanalyzer
 set FPR="FortifySimpleTests.fpr"
-set BUILDID="SimpleTests"
+set BUILDID="fortify_test"
 set ARGFILE="FortifySimpleTests.bat.args"
 set BYTECODE_ARGFILE="FortifySimpleTests.bat.bytecode.args"
-set MEMORY=-Xmx14566M -Xms400M -Xss24M 
+set MEMORY=-Xmx14636M -Xms400M -Xss24M 
 set LAUNCHERSWITCHES=""
 set OLDFILENUMBER=FortifySimpleTests.bat.fileno
 set FILENOMAXDIFF=10
@@ -75,6 +75,13 @@ ENDLOCAL && set ENABLE_BYTECODE=%ENABLE_BYTECODE%
 REM ###########################################################################
 echo Cleaning previous scan artifacts
 %SOURCEANALYZER% %MEMORY% %LAUNCHERSWITCHES% -b %BUILDID% -clean 
+IF %ERRORLEVEL%==1 (
+echo Sourceanalyzer failed, exiting
+GOTO :FINISHED
+)
+REM ###########################################################################
+echo Running Build Integration
+%SOURCEANALYZER% %MEMORY% %LAUNCHERSWITCHES% -b %BUILDID%  -source 1.8 mvn -f "C:\Dev\hpaa-octane-dev\work\workspace\fortify_test\pom.xml" com.fortify.sca.plugins.maven:sca-maven-plugin:translate
 IF %ERRORLEVEL%==1 (
 echo Sourceanalyzer failed, exiting
 GOTO :FINISHED
@@ -131,24 +138,7 @@ GOTO :FINISHED
 REM ###########################################################################
 echo Finished
 :FINISHED
-REM call copy.bat
-REM ARGS "-cp"
-REM ARGS "PROJECTROOT0_MARKER\target\test-classes"
-REM ARGS "-source"
-REM ARGS "1.8"
-REM ARGS "-exclude" "PROJECTROOT0_MARKER\target\test-classes\com\simple\Simple3Test.class"
-REM ARGS "-exclude" "PROJECTROOT0_MARKER\target\test-classes\com\simple\SimpleTest.class"
-REM ARGS "-exclude" "PROJECTROOT0_MARKER\target\test-classes\com\simple2\Simple2Test.class"
-REM ARGS "-exclude" "PROJECTROOT0_MARKER\.idea\compiler.xml"
-REM ARGS "-exclude" "PROJECTROOT0_MARKER\.idea\copyright\profiles_settings.xml"
-REM ARGS "-exclude" "PROJECTROOT0_MARKER\.idea\libraries\Maven__junit_junit_4_12.xml"
-REM ARGS "-exclude" "PROJECTROOT0_MARKER\.idea\libraries\Maven__org_hamcrest_hamcrest_core_1_3.xml"
-REM ARGS "-exclude" "PROJECTROOT0_MARKER\.idea\misc.xml"
-REM ARGS "-exclude" "PROJECTROOT0_MARKER\.idea\modules.xml"
-REM ARGS "-exclude" "PROJECTROOT0_MARKER\.idea\uiDesigner.xml"
-REM ARGS "-exclude" "PROJECTROOT0_MARKER\.idea\vcs.xml"
-REM ARGS "-exclude" "PROJECTROOT0_MARKER\.idea\workspace.xml"
-REM ARGS "-exclude" "PROJECTROOT0_MARKER\target\surefire-reports\TEST-com.simple.Simple3Test.xml"
-REM ARGS "-exclude" "PROJECTROOT0_MARKER\target\surefire-reports\TEST-com.simple.SimpleTest.xml"
-REM ARGS "-exclude" "PROJECTROOT0_MARKER\target\surefire-reports\TEST-com.simple2.Simple2Test.xml"
+REM ARGS "-exclude" "PROJECTROOT0_MARKER\**\*.java"
+REM ARGS "-exclude" "PROJECTROOT0_MARKER\**\*.properties"
+REM ARGS "-exclude" "PROJECTROOT0_MARKER\**\*.ini"
 REM ARGS "PROJECTROOT0_MARKER"
