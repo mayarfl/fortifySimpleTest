@@ -60,6 +60,12 @@ public class SimpleTest {
    {
        Assert.assertEquals(3, 3);
    }
+   
+       	@Test  
+   public void alwaysPass9()
+   {
+       Assert.assertEquals(4, 4);
+   }
 
     @Test
     public void sometimesPass1()
@@ -91,6 +97,17 @@ public class SimpleTest {
 		 //Assert.assertEquals(smallerThanFiftee, true);
 	Assert.assertEquals(true, true);
     }
+	
+	@Test
+    public void sometimesPass4()
+    {
+ //        Random random = new Random();
+ //       int randomNumber = random.nextInt(100);
+ //       boolean smallerThanFiftee =  randomNumber < 50 ? true : false;         
+		 //Assert.assertEquals(smallerThanFiftee, true);
+	Assert.assertEquals(true, true);
+    }
+	
 	
     @Test
     @Ignore
