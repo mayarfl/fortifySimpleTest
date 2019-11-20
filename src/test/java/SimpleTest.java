@@ -168,6 +168,22 @@ public class SimpleTest {
         Random random = new Random();
         Assert.assertEquals(smallerThanFiftee, true);	
     }
+	
+	   @Test
+    @Ignore
+    public void ignored7()
+    {
+        Random random = new Random();
+        Assert.assertEquals(smallerThanFiftee, true);	
+    }
+	
+	   @Test
+    @Ignore
+    public void ignored8()
+    {
+        Random random = new Random();
+        Assert.assertEquals(smallerThanFiftee, true);	
+    }
 }
  
 
